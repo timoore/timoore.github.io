@@ -1,10 +1,10 @@
 ## Shader Source Debugging in the Vulkan Scene Graph
 
 The [Vulkan Scene Graph](https://github.com/vsg-dev/VulkanSceneGraph)
-(recently)[https://github.com/vsg-dev/VulkanSceneGraph/pull/748]
-acquired support for (source-level debugging of shaders)[https://youtu.be/Fja4lT508cA] when running a
+[recently](https://github.com/vsg-dev/VulkanSceneGraph/pull/748)
+acquired support for [source-level debugging of shaders](https://youtu.be/Fja4lT508cA) when running a
 program with RenderDoc. Incidently, if you do 3D graphics programming
-and don't know (RenderDoc)[https://renderdoc.org/], you need to. It
+and don't know [RenderDoc](https://renderdoc.org/), you need to. It
 will make all your dreams come true. Perhaps I exaggerate,
 but it provides a level of introspection that was unimaginable a few
 years ago. This is a quick walkthrough of how to enable shader source
@@ -20,7 +20,7 @@ is annotated with symbols that describe how it corresponds to the
 source. There's no global or command line option in the VSG for
 enabling source debugging, so your application must choose the option
 when creating a `vsg::ShaderSet`. Here's the code that does this in
-(vsgCs)[https://github.com/timoore/vsgCs]:
+[vsgCs](https://github.com/timoore/vsgCs):
 
 ```C++
         vsg::ref_ptr<vsg::ShaderSet> makeShaderSet(const vsg::ref_ptr<const vsg::Options>& options)
@@ -52,7 +52,7 @@ Once your application is built, you need to run it from within
 RenderDoc and capture traces of the frames that interest you. Here I'm
 setting up for run of vsgCs:
 
-![RenderDoc launch](/assets/launch.png)
+<img src="/assets/launch.png" alt = "RenderDoc launch">
 
 You can set program environment variables in this RenderDoc dialog,
 but I prefer to do that in the shell where I launch the `qrenderdoc`
