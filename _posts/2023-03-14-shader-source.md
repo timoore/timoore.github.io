@@ -23,19 +23,19 @@ when creating a `vsg::ShaderSet`. Here's the code that does this in
 [vsgCs](https://github.com/timoore/vsgCs):
 
 ```C++
-        vsg::ref_ptr<vsg::ShaderSet> makeShaderSet(const vsg::ref_ptr<const vsg::Options>& options)
-        {
-            auto vertexShader = vsg::read_cast<vsg::ShaderStage>("shaders/csstandard.vert", options);
-            auto fragmentShader = vsg::read_cast<vsg::ShaderStage>("shaders/csstandard_pbr.frag", options);
+ vsg::ref_ptr<vsg::ShaderSet> makeShaderSet(const vsg::ref_ptr<const vsg::Options>& options)
+ {
+     auto vertexShader = vsg::read_cast<vsg::ShaderStage>("shaders/csstandard.vert", options);
+     auto fragmentShader = vsg::read_cast<vsg::ShaderStage>("shaders/csstandard_pbr.frag", options);
 
-            if (!vertexShader || !fragmentShader)
-            {
-                vsg::fatal("pbr::makeShaderSet(...) could not find shaders.");
-                return {};
-            }
-            auto hints = vsg::ShaderCompileSettings::create();
-            hints->generateDebugInfo = RuntimeEnvironment::get()->generateShaderDebugInfo;
-            auto shaderSet = vsg::ShaderSet::create(vsg::ShaderStages{vertexShader, fragmentShader}, hints);
+     if (!vertexShader || !fragmentShader)
+     {
+         vsg::fatal("pbr::makeShaderSet(...) could not find shaders.");
+         return {};
+     }
+     auto hints = vsg::ShaderCompileSettings::create();
+     hints->generateDebugInfo = RuntimeEnvironment::get()->generateShaderDebugInfo;
+     auto shaderSet = vsg::ShaderSet::create(vsg::ShaderStages{vertexShader, fragmentShader}, hints);
 ...
 ```
 
@@ -52,7 +52,7 @@ Once your application is built, you need to run it from within
 RenderDoc and capture traces of the frames that interest you. Here I'm
 setting up for run of vsgCs:
 
-<img src="/assets/launch.png" alt = "RenderDoc launch">
+[![RenderDoc launch](/assets/launch.png)](/assets/launch.png)
 
 You can set program environment variables in this RenderDoc dialog,
 but I prefer to do that in the shell where I launch the `qrenderdoc`
